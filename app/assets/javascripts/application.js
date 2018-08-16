@@ -10,7 +10,9 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require style/core.min
+//= require style/ogs
+//= require style/script
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
