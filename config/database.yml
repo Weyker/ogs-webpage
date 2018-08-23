@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: ogs_production
-  username: ogs
-  password: <%= ENV['OGS_DATABASE_PASSWORD'] %>
+  database: rails_project_production
+  username: rails
+  password: <%= ENV['APP_DATABASE_PASSWORD'] %>
