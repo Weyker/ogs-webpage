@@ -5,7 +5,7 @@ class WelcomeController < ApplicationController
 
   def contact
     ContactFormMailer.send_contact_email(contact_params).deliver
-    render json: { message: 'Mensaje recibido, nos contactaremos a la brevedad' }, status: :ok
+    render json: { message: 'Done' }, status: :ok
   end
 
   private

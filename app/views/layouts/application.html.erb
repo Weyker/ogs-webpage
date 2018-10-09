@@ -65,5 +65,13 @@
       </div>
     </footer><!-- /.footer -->
     <%= javascript_include_tag 'application' %>
+
+    <script>
+      $(document).ready(function(){
+        $('#contactform').on('submit', function(){
+          $('.alert-success').removeClass('d-on-success');
+        });
+      });
+    </script>
   </body>
 </html>
