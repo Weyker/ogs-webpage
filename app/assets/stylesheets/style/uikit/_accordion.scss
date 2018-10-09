@@ -3,7 +3,7 @@
 
   .card {
     background-color: #fff;
-    border: 1px solid $color-divider-light;
+    border: 1px solid $color-divider-light !important;
     margin-bottom: 16px;
 
     &:last-child {
@@ -15,55 +15,55 @@
     margin-bottom: 0;
     padding-left: 20px;
     padding-right: 20px;
-    background-color: $color-bg-lightest;
-
-    font-family: $font-body;
-    letter-spacing: 0;
+    background-color: $color-bg-lighter;
   }
 
   .card-title a {
     display: block;
     padding: 16px 33px;
-    color: #000;
-
+    color: $color-title;
 
     &::before {
-      content: "\e648";
+      content: '';
       display: inline-block;
-      font-family: $font-icon-themify;
-      font-size: 12px;
+      width: 6px;
+      height: 6px;
+      border-left: 1px solid $color-text;
+      border-top: 1px solid $color-text;
       margin-right: 20px;
       margin-left: -33px;
+      margin-bottom: 3px;
+      transform: rotate(45deg);
       transition: .2s linear;
     }
 
     &.collapsed::before {
-      transform: rotate(180deg);
+      transform: rotate(-135deg);
     }
   }
 
 }
 
 
-// Connected accordion
-//
-.accordion {
+//----------------------------------------------------/
+// Connected
+//----------------------------------------------------/
+.accordion-connected {
+  border: 1px solid $color-divider-light;
 
-  box-shadow: 0 0px 15px rgba(0,0,0,.06);
   .card {
     margin-bottom: 0;
-    border: none;
-    border-bottom: 1px solid $color-divider-light;
+    border: 0 !important;
+    border-bottom: 1px solid $color-divider-light !important;
 
     &:last-child {
-      border-bottom: 0;
+      border-bottom: 0 !important;
     }
   }
 
 
   .card-title {
     border-bottom: 0;
-    background-color: #fff;
 
     a {
       padding-top: 20px;
@@ -73,3 +73,30 @@
 }
 
 
+//----------------------------------------------------/
+// Light
+//----------------------------------------------------/
+.accordion-light {
+  .card-title {
+    background-color: #fff;
+  }
+}
+
+
+//----------------------------------------------------/
+// Flash right
+//----------------------------------------------------/
+.accordion-arrow-right {
+
+  .card-title a {
+    padding-left: 0;
+    padding-right: 0;
+
+    &::before {
+      float: right;
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 10px;
+    }
+  }
+}

@@ -2,9 +2,9 @@
 .drawer {
   position: fixed;
   top: 0;
-  right: -300px;
+  right: -$drawer-width;
   bottom: 0;
-  width: 300px;
+  width: $drawer-width;
   //height: 100%;
   overflow: auto;
   background-color: #fff;
@@ -44,14 +44,8 @@
   }
 }
 
-.drawer-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 300px;
-  bottom: 0;
-  z-index: $zindex-drawer-backdrop;
-
+.backdrop-drawer {
+  right: $drawer-width;
   display: none;
 }
 
@@ -73,20 +67,14 @@
 
 
 .drawer-open {
-
-  position: relative;
-  overflow: hidden;
-  margin-left: -100px;
-
-  .topbar {
-    margin-left: -100px;
-  }
+  //position: relative;
+  //overflow: hidden;
 
   .drawer {
     right: 0;
   }
-  
-  .drawer-backdrop {
+
+  .backdrop-drawer {
     display: block;
   }
 }

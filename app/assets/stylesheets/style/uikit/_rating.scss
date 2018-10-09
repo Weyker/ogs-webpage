@@ -10,7 +10,7 @@
   padding: 0;
 
   label {
-    color: darken($color-bg-gray, 5%);
+    color: $yellow;
     cursor: default;
 
     &::before {
@@ -20,7 +20,11 @@
   }
 
   label.active {
-    color: $color-rating;
+    color: $yellow;
+  }
+
+  label.empty {
+    color: darken($color-bg-gray, 5%);
   }
 
 }

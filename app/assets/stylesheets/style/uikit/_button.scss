@@ -1,39 +1,49 @@
 
-
-
 .btn {
-  font-weight: 600;
   font-size: 11px;
-  padding: 7px 26px;
-  line-height: inherit;
-  color: $color-text-secondary;
+  padding: 8px 26px 6px;
   letter-spacing: 1.7px;
   text-transform: uppercase;
   border-radius: 2px;
-  background-color: #fff;
-  border-color: $color-divider;
+  //border: none;
   outline: none;
   transition: 0.15s linear;
-
-  &:hover {
-    cursor: pointer;
-  }
-
-  &:focus,
-  &.focus,
-  &:active,
-  &.active {
-    box-shadow: none;
-  }
-
-  &:disabled,
-  &.disabled {
-    cursor: not-allowed;
-  }
 }
+
 
 button:focus {
   outline: none;
+}
+
+
+//----------------------------------------------------/
+// Colors
+//----------------------------------------------------/
+
+.btn-link:hover,
+.btn-link:focus {
+  text-decoration: normal;
+}
+
+.btn-outline-secondary {
+  color: $color-text-secondary;
+}
+
+.btn-white {
+  @include button-variant(#fff, #fff);
+
+  &:hover {
+    background-color: #fff;
+    border-color: #fff;
+    color: $color-title;
+  }
+}
+
+@each $name in 'facebook', 'google', 'twitter' {
+  .btn-#{$name} {
+    $color: map-get($brand-colors, $name);
+    @include button-variant($color, $color);
+  }
 }
 
 
@@ -43,206 +53,149 @@ button:focus {
 //----------------------------------------------------/
 // Sizes
 //----------------------------------------------------/
-.btn-group-xs > .btn,
-.btn-xs {
-  font-size: 10px;
-  padding: 2px 16px;
-}
+// button-size($padding-top, $padding-bottom, $padding-x, $font-size)
+.btn-xs { @include button-size(4px, 3px, 12px, 10px); }
+.btn-sm { @include button-size(8px, 6px, 20px, 11px); }
+//.btn  { @include button-size(8px, 6px, 26px, 11px); }
+.btn-lg { @include button-size(7px, 6px, 32px, 12px); }
+.btn-xl { @include button-size(10px, 10px, 38px, 13px); }
 
-.btn-group-sm > .btn,
-.btn-sm {
-  font-size: 11px;
-  padding: 4px 20px;
-}
-
-.btn-group-lg > .btn,
-.btn-lg {
-  font-size: 12px;
-  padding: 9px 34px;
-}
-
-
-.btn-group-xl > .btn,
-.btn-xl {
-  font-size: 14px;
-  padding: 12px 40px;
-}
-
-// Consistent width
-.btn-w-xs { width: $width-cons-xs; }
-.btn-w-sm { width: $width-cons-sm; }
-.btn-w-md { width: $width-cons-md; }
-.btn-w-lg { width: $width-cons-lg; }
-.btn-w-xl { width: $width-cons-xl; }
-
-
+// Calculate heights
+//
+// line-height * font-size + padding-top + padding-bottom + border-width
+//
+$btn-height-xs: 27px; //$line-height-base * 10px + 4px + 2px + 2px;
+$btn-height-sm: 32px; //$line-height-base * 11px + 8px + 6px + 2px;
+$btn-height-md: 36px; //$line-height-base * 11px + 8px + 6px + 2px;
+$btn-height-lg: 40px; //$line-height-base * 12px + 6px + 6px + 2px;
+$btn-height-xl: 46px; //$line-height-base * 13px + 11px + 9px + 2px;
 
 
 //----------------------------------------------------/
 // Round
 //----------------------------------------------------/
-
 .btn-round {
   border-radius: 10rem;
 }
 
 
-
 //----------------------------------------------------/
-// Colors
+// Circle
 //----------------------------------------------------/
-.btn-primary   { @include btn-colors($color-primary, 8%); }
-.btn-success   { @include btn-colors($color-success, 6%); }
-.btn-info      { @include btn-colors($color-info, 6%); }
-.btn-warning   { @include btn-colors($color-warning, 5%); }
-.btn-danger    { @include btn-colors($color-danger, 5%); }
-.btn-dark      { @include btn-colors($color-dark, 5%); }
-.btn-secondary {
-  @include btn-colors($color-secondary, 3%, $color-text);
-}
+.btn-circle {
+  @include circle-button-size(56px);
 
-.btn-link {
-  color: $color-text;
-  font-weight: 500;
-
-  &:hover,
-  &:focus {
-    text-decoration: none;
-    color: $color-primary;
-  }
-}
-
-.btn-white {
-  background-color: #fff;
-  border-color: $color-divider-light;
-  color: $color-text-secondary;
-
-  &:hover,
-  &:focus {
-    background-color: #fff;
-    color: $color-text;
-  }
-}
-
-
-
-
-.btn-facebook      { @include btn-colors($color-facebook, 5%); }
-.btn-google        { @include btn-colors($color-google-plus, 5%); }
-.btn-twitter       { @include btn-colors($color-twitter, 5%); }
-
-
-
-//----------------------------------------------------/
-// Outline
-//----------------------------------------------------/
-.btn-outline {
-  transition: .5s;
-}
-
-.btn-primary-outline   { @include btn-outline($color-primary, 8%); }
-.btn-success-outline   { @include btn-outline($color-success, 6%); }
-.btn-info-outline      { @include btn-outline($color-info, 6%); }
-.btn-warning-outline   { @include btn-outline($color-warning, 5%); }
-.btn-danger-outline    { @include btn-outline($color-danger, 5%); }
-.btn-secondary-outline { @include btn-outline($color-secondary, 3%, $color-text); }
-
-// Separated class
-.btn-outline.btn-primary   { @include btn-outline($color-primary, 8%); }
-.btn-outline.btn-success   { @include btn-outline($color-success, 6%); }
-.btn-outline.btn-info      { @include btn-outline($color-info, 6%); }
-.btn-outline.btn-warning   { @include btn-outline($color-warning, 5%); }
-.btn-outline.btn-danger    { @include btn-outline($color-danger, 5%); }
-.btn-outline.btn-secondary {
-  @include btn-outline($color-secondary, 3%, $color-text);
-  color: $color-text-secondary;
-}
-
-.btn-outline.btn-white      { @include btn-outline(#fff, 5%); }
-.btn-outline.btn-dark       { @include btn-outline($color-dark, 5%); }
-
-.btn-outline.btn-white:hover,
-.btn-outline.btn-white:focus { color: $color-text; }
-
-.btn-outline.active {
-  color: #fff;
-}
-
-.btn-outline.btn-secondary.active {
-  color: $color-text;
-}
-
-//----------------------------------------------------/
-// Circular
-//----------------------------------------------------/
-.btn-circular {
-  width: $height-md + 16;
-  height: $height-md + 16;
   padding: 0;
-  border-radius: 50%;
+  border-radius: 10rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  i {
-    font-size: 20px;
-  }
+  font-size: 1rem;
 
   .fa-play {
     margin-left: 4px;
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 
-  &.btn-xs {
-    width: $height-xs + 8;
-    height: $height-xs + 8;
+  // Sizes
+  //
+  &.btn-xs { @include circle-button-size(40px); font-size: 0.875rem; }
+  &.btn-sm { @include circle-button-size(48px); font-size: 0.9325rem; }
+  &.btn-lg { @include circle-button-size(64px); font-size: 1.25rem; }
+  &.btn-xl { @include circle-button-size(72px); font-size: 1.5rem; }
+}
 
-    i {
-      font-size: 12px;
-    }
 
-    .fa-play {
-      font-size: 8px;
-    }
-  }
+//----------------------------------------------------/
+// Glass
+//----------------------------------------------------/
+@each $color, $value in $theme-colors {
+  .btn-glass.btn-#{$color} {
+    background-color: rgba($value, 0.6);
+    border-color: transparent;
+    color: #fff;
 
-  &.btn-sm {
-    width: $height-sm + 12;
-    height: $height-sm + 12;
-
-    i {
-      font-size: 16px;
-    }
-
-    .fa-play {
-      font-size: 12px;
+    &:hover {
+      background-color: rgba($value, 0.9);
     }
   }
+}
 
-  &.btn-lg {
-    width: $height-lg + 20;
-    height: $height-lg + 20;
 
-    i {
-      font-size: 24px;
-    }
 
-    .fa-play {
-      font-size: 16px;
-    }
+//----------------------------------------------------/
+// Label
+//----------------------------------------------------/
+.btn-label {
+  position: relative;
+  padding-left: $btn-height-md + 16px;
+  overflow: hidden;
+
+  label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: $btn-height-md;
+    line-height: inherit;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: rgba(0,0,0,0.1);
+    cursor: pointer;
+    margin-bottom: 0;
   }
 
   &.btn-xl {
-    width: $height-xl + 24;
-    height: $height-xl + 24;
+    padding-left: $btn-height-xl + 16px;
+    label { width: $btn-height-xl; }
+  }
 
-    i {
-      font-size: 28px;
-    }
+  &.btn-lg {
+    padding-left: $btn-height-lg + 16px;
+    label { width: $btn-height-lg; }
+  }
 
-    .fa-play {
-      font-size: 18px;
-    }
+  &.btn-sm {
+    padding-left: $btn-height-sm + 16px;
+    label { width: $btn-height-sm; }
+  }
+
+  &.btn-xs {
+    padding-left: $btn-height-xs + 16px;
+    label { width: $btn-height-xs; }
   }
 
 }
+
+
+
+//----------------------------------------------------/
+// Square
+//----------------------------------------------------/
+.btn-square {
+  padding-left: 5px;
+  padding-right: 5px;
+  width: $btn-height-md;
+  height: $btn-height-md;
+
+  &.btn-xl {
+    width: $btn-height-xl;
+    height: $btn-height-xl;
+  }
+
+  &.btn-lg {
+    width: $btn-height-lg;
+    height: $btn-height-lg;
+  }
+
+  &.btn-sm {
+    width: $btn-height-sm;
+    height: $btn-height-sm;
+  }
+
+  &.btn-xs {
+    width: $btn-height-xs;
+    height: $btn-height-xs;
+  }
+}
+

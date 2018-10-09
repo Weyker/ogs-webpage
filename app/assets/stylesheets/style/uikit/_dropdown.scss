@@ -2,19 +2,25 @@
 .dropdown-toggle {
   cursor: pointer;
 
+  &::after,
+  .dropup &::after {
+    content: '';
+    width: 4px;
+    height: 4px;
+    vertical-align: initial;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+    border: none;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+  }
 
   &::after {
-    content: "\f107";
-    font-family: $font-icon-fontawesome;
-    margin-left: 8px;
-    border: none;
-    vertical-align: initial;
-    transform: translateY(1px);
+    transform: rotate(45deg);
   }
 
   .dropup &::after {
-    content: "\f106";
-    transform: translateY(0);
+    transform: rotate(-135deg);
   }
 
   &.no-caret::after {
@@ -40,7 +46,7 @@
 .dropdown-item {
   padding-left: 0;
   padding-right: 0;
-  color: $color-text-secondary;
+  color: $color-text-light;
   background-color: transparent;
   opacity: .8;
 
@@ -60,21 +66,30 @@
 .dropdown-header {
   padding-left: 0;
   padding-right: 0;
-  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 0.8325rem;
+  font-weight: 500;
+  color: $color-text;
+  text-transform: uppercase;
 }
 
 
 .dropdown-divider {
   background-color: $color-divider-light;
-  margin-left: -20px;
-  margin-right: -20px;
+  margin-left: -1rem;
+  margin-right: -1rem;
 }
 
 
-
 // Open on hover
-// 
-.open-on-hover:hover .dropdown-menu {
-  display: block;
-  margin-top: 0;
+//
+.open-on-hover:hover,
+.open-on-hover:focus,
+.open-on-hover.show {
+
+  .dropdown-menu {
+    display: block;
+    margin-top: 0;
+  }
+
 }

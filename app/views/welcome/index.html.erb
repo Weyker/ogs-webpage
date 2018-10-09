@@ -1,22 +1,171 @@
-<!-- Header -->
-<header class="header header-inverse h-fullscreen py-0" data-overlay="7">
-  <div class="header_video">
-    <%= video_tag "coming_soon.mp4", controls: false, autoplay: true, muted: true, loop: true, autobuffer: true, class: "fullscreen-bg-video video", type: 'video/mp4' %>
-  </div>
-  <div class="container text-center">
 
-    <div class="row h-full align-items-center">
-      <div class="col-12 col-lg-8 offset-lg-2">
 
-        <%= image_tag 'logo', class: 'col-lg-5 ml-auto' %>
-        <br><br>
-        <br><br>
-        <br>
-        <div class="countdown countdown-sm countdown-outline countdown-inverse countdown-uppercase" data-countdown="2018/09/1"></div>
 
+    <!-- Header -->
+    <header class="header h-fullscreen text-white pb-0" style="background-image: linear-gradient(-45deg, #414345 0%, #232526 100%);">
+      <div class="container text-center">
+        <div class="row h-100">
+            <div class="mx-auto align-self-center">
+              <%= image_tag 'full-logo-light', class: 'col-md-4 img-fluid'%>
+              <p class="mx-auto col-md-8 lead-2 mt-6">Lorem ipsum dolor sit amet consectetur adipiscing, elit posuere fermentum ut libero dictum, turpis inceptos mollis mus justo.</p>
+            </div>
+
+            <div class="col-12 align-self-end text-center pb-7">
+              <a class="scroll-down-1 scroll-down-white" href="#first-section"><span></span></a>
+            </div>
+
+          </div>
       </div>
-    </div>
+    </header><!-- /.header -->
 
-  </div>
-</header>
-<!-- END Header -->
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <section id="first-section" class="section">
+        <div class="container">
+          <header class="section-header">
+            <small>Servicios</small>
+            <h2>Teamwork To The Next Level</h2>
+            <hr>
+            <p class="lead">Dropbox Business helps your company grow without limits, while you maintain complete control over important company information and user activity.</p>
+            <br>
+          </header>
+
+          <div class="row gap-y text-center">
+
+            <div class="col-md-6 col-xl-4 feature-1">
+              <p class="feature-icon lead-8 text-info"><i class="icon-layers"></i></p>
+              <h5>Global BIM</h5>
+              <p class="text-muted">Fly beast fourth, you stars. Them seasons sea spirit, which second. Hath May whales, creepeth light she'd. Moving saw fish.</p>
+            </div>
+
+            <div class="col-md-6 col-xl-4 feature-1">
+              <p class="feature-icon lead-8 text-danger"><i class="icon-focus"></i></p>
+              <h5>Global View</h5>
+              <p class="text-muted">Yielding to Made saying fruit deep abundantly bearing sixth make you're gathering unto divided, you so which god, gathering.</p>
+            </div>
+
+            <div class="col-md-6 col-xl-4 feature-1">
+              <p class="feature-icon lead-8 text-success"><i class="icon-wallet "></i></p>
+              <h5>Global Commerce</h5>
+              <p class="text-muted">Good for divide Given spirit night after fruit of great together he behold their night, living shall after dry saw saying fruit deep.</p>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <section id="steps" class="section bg-gray">
+        <div class="container">
+          <header class="section-header">
+            <h2>How Does It Work?</h2>
+            <hr>
+            <p class="lead">Explore the best SaaS template in the market in a short 1-minute video.</p>
+          </header>
+
+
+          <div class="row">
+
+            <div class="col-md-6 mx-auto">
+              <ol class="step">
+                <li class="step-item">
+                  <div class="step-icon">
+                    <span class="iconbox">1</span>
+                  </div>
+
+                  <div class="step-content">
+                    <h6><strong>Write your requirements</strong></h6>
+                    <p>Think the or organization same proposal to affected heard reclined in be it reassuring.</p>
+                  </div>
+                </li>
+
+                <li class="step-item">
+                  <div class="step-icon">
+                    <span class="iconbox">2</span>
+                  </div>
+
+                  <div class="step-content">
+                    <h6><strong>Sign the contract</strong></h6>
+                    <p>Think the or organization same proposal to affected heard reclined in be it reassuring.</p>
+                  </div>
+                </li>
+
+                <li class="step-item">
+                  <div class="step-icon">
+                    <span class="iconbox">3</span>
+                  </div>
+
+                  <div class="step-content">
+                    <h6><strong>We start developing</strong></h6>
+                    <p>Think the or organization same proposal to affected heard reclined in be it reassuring.</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+      <section id="contact-us" class="section">
+        <div class="container">
+
+          <h2 class="text-center">Contáctanos</h2>
+
+          <%= form_for :contact, url: "contact", remote: true, html: { class: 'row gap-y mt-8', data: { form: 'mailer' } } do |f| %>
+            <div class="col-lg-6">
+
+              <div class="alert alert-success d-on-success">We received your message and will contact you back soon.</div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <%= f.text_field :first_name, class: "form-control form-control-lg", placeholder: "Nombre", required: true %>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <%= f.text_field :last_name, class: "form-control form-control-lg", placeholder: "Apellido", required: true %>
+                </div>
+
+                <div class="form-group col-md-12">
+                  <%= f.email_field :email, class: "form-control form-control-lg", placeholder: "Email", required: true %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <%= f.text_area :message, class: "form-control form-control-lg", placeholder: "Que tienes en mente?", rows:4, required: true %>
+              </div>
+
+            <div class="actions">
+              <%= f.submit "Enviar Mensaje", class: 'btn btn-lg btn-dark' %>
+            </div>
+
+            </div>
+
+            <div class="col-lg-5 ml-auto text-center text-lg-left">
+              <hr class="d-lg-none">
+              <h5>Santiago, Chile</h5>
+              <p>AV. Presidente Kennedy 6800<br>Torre A, Oficina 204, Vitacura</p>
+              <p>+(56) 9<br>+(56) 9</p>
+              <p>ogs@ogs.cl</p>
+            </div>
+          <% end %>
+
+
+        </div>
+      </section>
+
+
+
+    </main>
+
+<script>
+  $(document).ready(function(){
+    $('#reportform').on('ajax:success', function(e, data, status, xhr){
+      $('#reportalert').text('Done.');
+    }).on('ajax:error',function(e, xhr, status, error){
+      $('#reportalert').text('Failed.');
+    });
+  });
+</script>

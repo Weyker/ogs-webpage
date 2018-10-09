@@ -4,7 +4,6 @@
 //----------------------------------------------------/
 .row {
 
-
   &.no-gap {
     margin-left: 0;
     margin-right: 0;
@@ -43,6 +42,7 @@
 //----------------------------------------------------/
 .flexbox {
   display: flex;
+  align-items: center;
   justify-content: space-between;
 
   @include gap-items-x(4px);
