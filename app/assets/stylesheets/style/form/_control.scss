@@ -1,104 +1,62 @@
 
-
-.form-check-input {
-  outline: none;
-}
-
-
-
 //-----------------------------------------------------------------
 // Custom checkbox and radiobox
 //
 .custom-control {
-  color: $color-text;
-  font-weight: 300;
-  letter-spacing: 0;
-  margin-bottom: 0;
-  outline: none;
-
-  display: inline-flex;
-  align-items: center;
   padding-left: 0;
-}
-
-.custom-controls-stacked {
-
-  @include clearfix();
-
-  .custom-control {
-    display: inline-flex;
-    margin-bottom: 6px;
-  }
+  min-height: auto;
 }
 
 .custom-control-input {
-  &:checked ~ .custom-control-indicator,
-  &:active:not(:disabled) ~ .custom-control-indicator {
-    background-image: none;
-    background-color: $color-bg-lightest;
+
+  &:checked ~ .custom-control-label::after {
+    transform: scale(1);
   }
 
-  &:focus ~ .custom-control-indicator {
-    box-shadow: none;
-  }
+  &:disabled ~ .custom-control-label {
+    opacity: .7;
 
-  &:checked ~ .custom-control-indicator {
     &::before,
     &::after {
-      transform: scale(1);
+      opacity: 0.7;
     }
   }
 
-  &:disabled ~ .custom-control-indicator {
-    opacity: .5;
-  }
-
-  &:checked ~ .custom-control-description.strike-on-check {
-    text-decoration: line-through;
-    opacity: .6;
-  }
-
 }
 
-.custom-control-indicator {
-  width: 18px;
-  height: 18px;
-  line-height: 18px;
-  color: #fff;
-  background-color: $color-bg-lightest;
-  border: 1px solid $color-divider;
+.custom-control-label {
+  display: flex;
+  align-items: center;
+  font-weight: 300;
 
-  position: static;
-  flex-shrink: 0;
-  flex-grow: 0;
-  text-align: center;
-
+  &::before {
+    position: static;
+    top: auto;
+    border: 1px solid $color-divider;
+    margin-right: 0.5rem;
+  }
 
   &::after {
-    content: '';
-    display: inline-block;
     transform: scale(0);
     transition: transform .3s;
   }
-
 }
 
-.custom-control-description {
-  padding-left: 8px;
-  flex-grow: 1;
-}
 
 // Radio only
 //
 .custom-radio {
 
-  .custom-control-indicator::after {
+  cursor: pointer;
+
+  .custom-control-label::after {
+    $size: $custom-control-indicator-size - 0.125rem;
+    top: 12px - 4px;
+    left: $size/4 + 0.0625rem;
+    //margin-top: -$size/4 - 2px;
     border-radius: 50%;
-    vertical-align: top;
-    margin-top: 4px;
-    display: inline-block;
-    width: 8px;
-    height: 8px;
+    width: $size/2;
+    height: $size/2;
     background-color: $color-primary;
   }
 
@@ -109,125 +67,21 @@
 //
 .custom-checkbox {
 
-  .custom-control-indicator {
-    border-radius: 0;
+  cursor: pointer;
 
-    &::after {
-      content: "\e64c";
-      font-family: $font-icon-themify;
-      font-size: 11px;
-      font-weight: bold;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      text-align: center;
-      color: $color-primary;
-    }
-
-  }
-
-  .custom-control-input:checked ~ .custom-control-indicator {
-
-    &::before,
-    &::after {
-      border-radius: 0;
-    }
-  }
-
-}
-
-
-
-// No border
-//
-.custom-control.no-border {
-
-  .custom-control-indicator {
-    border-color: transparent;
-    background-color: transparent;
-
-    &::before {
-      background-color: transparent;
-    }
-
-  }
-
-  &.custom-checkbox .custom-control-indicator {
-
-    &::after {
-      font-size: 14px;
-    }
-  }
-
-  &.custom-radio .custom-control-indicator {
-
-    &::after {
-      margin-top: 3px;
-      display: inline-block;
-      width: 9px;
-      height: 9px;
-    }
-  }
-
-}
-
-
-
-
-
-// Sizes
-//
-.custom-control-sm {
-
-  .custom-control-indicator {
-    width: 14px;
-    height: 14px;
-    line-height: 12px;
-  }
-
-  &.custom-radio .custom-control-indicator::after {
-    margin-top: 3px;
-    width: 6px;
-    height: 6px;
-  }
-  &.custom-radio.no-border .custom-control-indicator::after {
-    margin-top: 2px;
-    width: 7px;
-    height: 7px;
-  }
-
-  &.custom-checkbox .custom-control-indicator::after {
-    font-size: 9px;
-  }
-  &.custom-checkbox.no-border .custom-control-indicator::after {
-    font-size: 11px;
-  }
-}
-
-.custom-control-lg {
-
-  .custom-control-indicator {
-    width: 22px;
-    height: 22px;
-    line-height: 22px;
-  }
-
-  &.custom-radio .custom-control-indicator::after {
-    margin-top: 5px;
-    width: 10px;
+  .custom-control-label::after {
+    top: 50%;
+    left: 6px;
+    margin-top: -6px;
+    width: 5px;
     height: 10px;
-  }
-  &.custom-radio.no-border .custom-control-indicator::after {
-    margin-top: 5px;
-    width: 10px;
-    height: 10px;
+    border: solid $color-primary;
+    border-width: 0 1px 1px 0;
+    transform: scale(0) rotate(35deg);
   }
 
-  &.custom-checkbox .custom-control-indicator::after {
-    font-size: 14px;
+  .custom-control-input:checked ~ .custom-control-label::after {
+    transform: scale(1) rotate(35deg);
   }
-  &.custom-checkbox.no-border .custom-control-indicator::after {
-    font-size: 16px;
-  }
+
 }

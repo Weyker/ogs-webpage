@@ -1,44 +1,27 @@
 
-//-----------------------------------------------------------------
-// Spacing
-//
-$spacing-sizes-list: 4 5 8 10 12 15 16 20 24 25 30 35 40 45 50 60 70 80 90 100 120 140 150 160 180 200 250 300;
-@each $prop, $abbrev in (margin: m, padding: p) {
-  @each $size in $spacing-sizes-list {
-    .#{$abbrev}-#{$size}  { #{$prop}:        #{$size}px !important; } // a = All sides
-    .#{$abbrev}t-#{$size} { #{$prop}-top:    #{$size}px !important; }
-    .#{$abbrev}r-#{$size} { #{$prop}-right:  #{$size}px !important; }
-    .#{$abbrev}b-#{$size} { #{$prop}-bottom: #{$size}px !important; }
-    .#{$abbrev}l-#{$size} { #{$prop}-left:   #{$size}px !important; }
-
-    // Axes
-    .#{$abbrev}x-#{$size} {
-      #{$prop}-right:  #{$size}px !important;
-      #{$prop}-left:   #{$size}px !important;
-    }
-    .#{$abbrev}y-#{$size} {
-      #{$prop}-top:    #{$size}px !important;
-      #{$prop}-bottom: #{$size}px !important;
-    }
-  }
-}
-
-
-
-//-----------------------------------------------------------------
+//----------------------------------------------------/
 // Gap items
+//----------------------------------------------------/
+
+// Horizontally
 //
-.gap-items,
-.gap-items-3 { @include gap-items-x(); }
-.gap-items-1 { @include gap-items-x(2px); }
-.gap-items-2 { @include gap-items-x(4px); }
-.gap-items-4 { @include gap-items-x(12px); }
-.gap-items-5 { @include gap-items-x(16px); }
+.gap-x-1 { @include gap-items-x(2px); }
+.gap-x-2 { @include gap-items-x(4px); }
+.gap-x,
+.gap-x-3 { @include gap-items-x(8px); }
+.gap-x-4 { @include gap-items-x(12px); }
+.gap-x-5 { @include gap-items-x(16px); }
+.gap-x-6 { @include gap-items-x(24px); }
+.gap-x-7 { @include gap-items-x(32px); }
 
 
-.gap-multiline-items,
-.gap-multiline-items-3 { @include gap-items(); }
-.gap-multiline-items-1 { @include gap-items(2px); }
-.gap-multiline-items-2 { @include gap-items(4px); }
-.gap-multiline-items-4 { @include gap-items(12px); }
-.gap-multiline-items-5 { @include gap-items(16px); }
+// Horizontal & Vertical
+//
+.gap-xy-1 { @include gap-items(2px); }
+.gap-xy-2 { @include gap-items(4px); }
+.gap-xy,
+.gap-xy-3 { @include gap-items(8px); }
+.gap-xy-4 { @include gap-items(12px); }
+.gap-xy-5 { @include gap-items(16px); }
+.gap-xy-6 { @include gap-items(24px); }
+.gap-xy-7 { @include gap-items(32px); }

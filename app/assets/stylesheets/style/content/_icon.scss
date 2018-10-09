@@ -1,4 +1,10 @@
 
+.fa {
+  font-weight: inherit;
+}
+
+
+
 .iconbox {
   $size: $height-md;
 
@@ -9,12 +15,12 @@
   height: $size;
   line-height: $size;
   background-color: $color-bg-light;
-  color: $color-text-secondary;
+  color: $color-text-light;
   border-radius: 10rem;
 
 
   // Sizes
-  // 
+  //
   &.iconbox-xs {
     $size:  $height-xs;
     width: $size;

@@ -50,7 +50,7 @@
       transform: scale(1.1);
     }
 
-    .portfolio-details {
+    .portfolio-detail {
       opacity: 1;
     }
 
@@ -60,7 +60,7 @@
     transition: all 0.3s;
   }
 
-  .portfolio-details {
+  .portfolio-detail {
     position: absolute;
     top: 50%;
     left: 0;
@@ -91,28 +91,27 @@
   img {
     @extend .shadow-2, .hover-shadow-5;
   }
-  
+
 }
 
 
 
-.project-details {
+.project-detail {
   list-style: none;
   padding-left: 0;
-  margin-top: 20px;
 
   li:not(:last-child) {
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid $color-divider;
+    //padding-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
+    //border-bottom: 1px solid $color-divider;
   }
 
   strong {
     display: block;
-    font-weight: 300;
-    font-size: 13px;
+    font-weight: 600;
+    font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: $color-text-secondary;
+    color: $color-title;
   }
 }

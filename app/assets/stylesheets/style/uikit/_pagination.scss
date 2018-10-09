@@ -1,78 +1,17 @@
 
-//
-// Pagination
-//
 .page-link {
-  color: $color-text;
-  font-weight: 400;
-  border-color: $color-divider;
-  padding: 0;
   margin: 0 3px;
-  min-width: $height-sm + 2px;
-  line-height: $height-sm;
+  padding: 0;
   text-align: center;
-  border-radius: 2px;
-
-  &:hover,
-  &:focus {
-    background-color: $color-bg-gray;
-    color: $color-text;
-  }
-
-  span {
-    font-size: 75%;
-  }
+  min-width: $pagination-line-height;
 }
 
+.page-link,
 .page-item:last-child .page-link,
 .page-item:first-child .page-link {
   border-radius: 2px;
 }
 
-.page-item.disabled .page-link {
-  &,
-  &:focus,
-  &:hover {
-    opacity: 0.6;
-    cursor: default;
-  }
+.page-item.disabled {
+  opacity: 0.6;
 }
-
-.page-item.active .page-link {
-  &,
-  &:focus,
-  &:hover {
-    background-color: $color-primary;
-    border-color: $color-primary;
-    font-weight: 500;
-  }
-}
-
-// No border
-//
-.pagination.no-border .page-link {
-
-  border: none;
-
-  &:hover,
-  &:focus {
-    border-color: $color-bg-gray;
-  }
-
-}
-
-
-// Size
-//
-.pagination-sm .page-link {
-  padding: 0;
-  min-width: $height-xs + 2px;
-  line-height: $height-xs;
-}
-
-.pagination-lg .page-link {
-  padding: 0;
-  min-width: $height-md + 2px;
-  line-height: $height-md;
-}
-
